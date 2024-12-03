@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodholyc_app/screens/camera_screen.dart';
 import 'package:foodholyc_app/screens/create_market_screen.dart';
 import 'package:foodholyc_app/screens/create_recipe_screen.dart';
 import 'package:foodholyc_app/screens/my_class_screen.dart';
@@ -198,8 +199,12 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   trailing: Icon(Icons.arrow_forward_ios, color: Colors.grey),
                   onTap: () {
-                    // Navigate to Live Screen
-                  },
+                  // Navigasi ke CameraScreen saat tombol Live ditekan
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CameraScreen()),
+                  );
+                },
                 ),
                 Divider(),
                 ListTile(
