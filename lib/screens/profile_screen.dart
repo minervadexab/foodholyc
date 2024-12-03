@@ -50,7 +50,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '77rayhan33@example.com',
+                        '77rayhan33@gmail.com',
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 16,
@@ -249,7 +249,8 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   trailing: Icon(Icons.arrow_forward_ios, color: Colors.grey),
                   onTap: () {
-                    // Handle Logout
+                    // Perform logout action
+                    Navigator.pushReplacementNamed(context, '/login');
                   },
                 ),
               ],

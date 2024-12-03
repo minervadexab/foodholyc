@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "331563472689",
+    "project_id": "flutter-final-924cf",
+    "storage_bucket": "flutter-final-924cf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331563472689:android:41016d112760176b65c210",
+        "android_client_info": {
+          "package_name": "com.example.foodholyc_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBvx2TtUkEgpSpS5ep5EFzq3dQ9gh1mak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331563472689:android:f5891637a93693bb65c210",
+        "android_client_info": {
+          "package_name": "com.example.keep_notes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBvx2TtUkEgpSpS5ep5EFzq3dQ9gh1mak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

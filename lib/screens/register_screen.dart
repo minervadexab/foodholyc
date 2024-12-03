@@ -1,19 +1,17 @@
+// register_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foodholyc_app/bloc/auth_bloc.dart';
 import 'package:foodholyc_app/bloc/auth_event.dart';
 import 'package:foodholyc_app/bloc/auth_state.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:foodholyc_app/firebase_options.dart';
-import 'package:foodholyc_app/screens/register_screen.dart';
 
-class LoginScreen extends StatefulWidget {
+class RegisterScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final _usernameController = TextEditingController();
+class _RegisterScreenState extends State<RegisterScreen> {
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
   bool _isLoading = false;
@@ -91,11 +89,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         SizedBox(height: 50),
                         TextField(
-                          controller: _usernameController,
+                          controller: _emailController,
                           decoration: InputDecoration(
-                            labelText: 'Username or Email',
+                            labelText: 'Email',
                             labelStyle: TextStyle(color: Colors.white),
-                            hintText: 'Enter username or email',
+                            hintText: 'Enter your email',
                             hintStyle: TextStyle(color: Colors.white54),
                             filled: true,
                             fillColor: Colors.white.withOpacity(0.1),
@@ -103,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               borderRadius: BorderRadius.circular(30),
                               borderSide: BorderSide.none,
                             ),
-                            prefixIcon: Icon(Icons.person, color: Colors.white),
+                            prefixIcon: Icon(Icons.email, color: Colors.white),
                           ),
                         ),
                         SizedBox(height: 20),
@@ -113,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: InputDecoration(
                             labelText: 'Password',
                             labelStyle: TextStyle(color: Colors.white),
-                            hintText: 'Enter password',
+                            hintText: 'Enter your password',
                             hintStyle: TextStyle(color: Colors.white54),
                             filled: true,
                             fillColor: Colors.white.withOpacity(0.1),
@@ -141,8 +139,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       _isLoading = true;
                                     });
                                     context.read<AuthBloc>().add(
-                                          LoginRequested(
-                                            _usernameController.text,
+                                          RegisterRequested(
+                                            _emailController.text,
                                             _passwordController.text,
                                           ),
                                         );
@@ -161,47 +159,18 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             child: _isLoading
                                 ? CircularProgressIndicator(color: Colors.white)
-                                : Text('Login'),
+                                : Text('Register'),
                           ),
                         ),
                         SizedBox(height: 20),
                         TextButton(
                           onPressed: () {
-                            // Handle forgot password
+                            Navigator.pop(context); // Navigate to login screen
                           },
                           child: Text(
-                            'Forgot Password?',
+                            'Already have an account? Login',
                             style: TextStyle(color: Colors.white),
                           ),
-                        ),
-                        SizedBox(height: 30),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Don\'t have an account?',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => RegisterScreen()),
-                                );
-                              },
-                              child: Text(
-                                'Sign Up',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
                         ),
                       ],
                     );
